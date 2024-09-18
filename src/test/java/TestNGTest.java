@@ -1,5 +1,3 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -84,6 +82,9 @@ public class TestNGTest {
             // Wait for the "Remove" button to be visible and print its text
             WebElement removeButton = wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Remove')]")));
             System.out.println(removeButton.getText());
+            Assert.assertTrue(checkbox.isDisplayed());
+            String verifiedText = removeButton.getText();
+            Assert.assertEquals(verifiedText, "Remove");
         }
     }
 
