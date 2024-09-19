@@ -29,20 +29,20 @@ public class TestNGTest {
         public void testButtonText() {
             driver.manage().window().maximize();
             driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
-
-            // Find the button and click it
+//
+//            // Find the button and click it
             WebElement button = driver.findElement(By.tagName("button"));
             button.click();
-
-            // Wait for the text to become visible
+//
+//            // Wait for the text to become visible
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             WebElement textElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("finish")));
 
-            // Get the text from the element
+//            // Get the text from the element
             String actualText = textElement.getText();
             String expectedText = "Hello World!";
 
-            // Assert that the actual text matches the expected text
+//            // Assert that the actual text matches the expected text
             Assert.assertEquals(actualText, expectedText, "Text not found or incorrect!");
         }
 
@@ -50,8 +50,8 @@ public class TestNGTest {
         public void testColorChangeButtonText() {
             driver2.manage().window().maximize();
             driver2.get("https://demoqa.com/dynamic-properties");
-
-            // Find the button and print its text
+//
+//            // Find the button and print its text
             WebDriverWait wait2 = new WebDriverWait(driver2, Duration.ofSeconds(5));
             WebElement colorChangeButton = driver2.findElement(By.xpath("//button[@id='colorChange']"));
             Assert.assertTrue(colorChangeButton.isDisplayed());
@@ -82,7 +82,8 @@ public class TestNGTest {
             // Wait for the "Remove" button to be visible and print its text
             WebElement removeButton = wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Remove')]")));
             System.out.println(removeButton.getText());
-            Assert.assertTrue(checkbox.isDisplayed());
+            boolean isVisible = checkbox.isDisplayed();
+            Assert.assertTrue(isVisible, "The checkbox should be visible" );
             String verifiedText = removeButton.getText();
             Assert.assertEquals(verifiedText, "Remove");
         }
